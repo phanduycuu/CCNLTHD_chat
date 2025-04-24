@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
       # Thêm Django Channels
     'message',  # Ứng dụng chat
+    "file"
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,10 @@ DATABASES = {
     }
 }
 
-
+SITE_URL = 'http://127.0.0.1:8000'  # Hoặc domain thực tế của bạn
+MEDIA_URL = '/media/'  # URL để truy cập file
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CORS_ALLOW_ALL_ORIGINS = True
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
